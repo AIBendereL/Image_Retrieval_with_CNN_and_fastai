@@ -1,35 +1,20 @@
 # Image_Retrieval_with_CNN_and_fastai
 My personal practice, doing Image Retrieval with CNN, using fastai, without extra training.
 
-## Image Retrieval with CNN
-Image Retrival: retrieve images from a given dataset that are similar to a query image.  
-With CNN:  
-+ A query image -> CNN -> image features
-+ Dataset images -> CNN -> images features
-+ Get distance of image features and images features. Sort them from small to big.
-+ The images from the dataset with the smallest distance to the query image, are the most relevant.
 
--> Straight forward and high-precision  
+## Result  
 
-## Why use fastai?  
+| Dataset | Model | R=1 | R=4 | R=8 |
+| ------- | ----- | --- | --- | --- |
+| mnist | convnext large | 0.9243 | 0.9021 | 0.8869 |
+| cifar 100 | convnext large | 0.4185 | 0.3502 | 0.3174 |
+| cifar 10 | convnext large | 0.6405 | 0.6032 | 0.5796 |
+| imagenette 320px | convnext large | 0.9962 | 0.9958 | 0.9956 |
+| imagenette 160px | convnext large | 0.9857 | 0.9855 | 0.9846 |
+| imagewoof 320px | convnext large | 0.9646 | 0.962 | 0.9607 |
+| imagewoof 160px | convnext large | 0.9384 | 0.9332 | 0.9318 |
+| cub 200 2011 | convnext large | 0.767 | 0.7239 | 0.6911 |
+| caltech 101 | convnext large | 0.9535 | 0.943 | 0.9289 |
+| extract 1000 fast | convnext large | 0.875 | 0.8688 | 0.8069 |  
 
-+ fastai provides convenient datasets downloading.  
-+ fastai timm provides convenient models downloading.
-+ fastai library helps reducing boilerplate code.
-+ fastai library helps simplify code.
-
-## R-precision Metric  
-
-+ For top R images retrieved, number of relevant images -> n relevant image / R.
-+ For the experiment, relevant means the images are the same class.
-
-## Table of result  
-
-+ Path: log/dataframes_to_excel_result.xlsx
-+ Model:
-+ ConvnextLarge has the highest R-precision (R: 1->8) for all datasets, except for Extract1000Fast, with only 0.005 difference in 1-precision from top 1 model.
-+ ConvnextLarge has R-precision: 0.4185 -> 0.9962 (R: 1) and 0.3174 -> 0.9956 (R: 8)
-
-
-
-
+Full result ---> Log file path: **log/dataframes_to_excel_result.xlsx**
