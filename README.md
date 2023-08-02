@@ -4,7 +4,9 @@ My personal practice, doing Image Retrieval with CNN, using fastai, without extr
 
 ## Result  
 
-| Dataset | Model | R=1 | R=4 | R=8 |
+### Hightlight
+
+| Dataset | Model | K=1 | K=4 | K=8 |
 | ------- | ----- | --- | --- | --- |
 | mnist | convnext large | 0.9243 | 0.9021 | 0.8869 |
 | cifar 100 | convnext large | 0.4185 | 0.3502 | 0.3174 |
@@ -17,4 +19,79 @@ My personal practice, doing Image Retrieval with CNN, using fastai, without extr
 | caltech 101 | convnext large | 0.9535 | 0.943 | 0.9289 |
 | extract 1000 fast | convnext large | 0.875 | 0.8688 | 0.8069 |  
 
-Full result ---> Log file path: **log/dataframes_to_excel_result.xlsx**
+Highlight table: Image Retrieval, Convnext Large model's Precision at K for datasets.
+
+<br>
+
+For all the datasets, Convnext Large has the highest Precision at K, except for Extract 1000 fast, at K=1, with only 0.005 difference from the highest precision at K.
+
+### Metric
+
+Precision at K: The number of relevant images among the top K retrieved images.  
+P@K = The number of relevant images among the top K retrieved images / K
+
+### Full
+Full result including other models (Convnext Small, Resnet152, Efficientv2RwT, EfficientnetB3, Resnet26d, Vgg16):  
+---> Result file path: **log/dataframes_to_excel_result.xlsx**
+
+
+## Overview of processing steps
+
+1. Load datasets. (divided into data images and target images (query images))
+2. Load models.  
+3. Extract features. (data images -> data features, target images -> target features)
+4. Compute distances between target features and data features.
+5. Sort distances and get correspoding data images' indexes.
+6. Compute Precision at K.
+
+### Datasets
+
+All the datasets are downloaded from fastai, except for Extract 1000 fast, which I manually built.
+
+I extracted a small portion of ImageNet 1k dataset[^1] to make Extract 1000 fast.  
+Extract 1000 fast has 100 classes, 10 images each class, total of 1000 images. Which then divided into 800 data images and 200 target images.  
+
+### Models
+
+All the models are downloaded from fastai timm[^2].  
+All the models are pruned the last classifying layer. (the models' output is the output of the penultimate fully connected layer)
+
+
+## Quick reproduction
+
+### Main notebooks
+
+- ir_cnn_run.ipynb (**main**) (**recommend**) (for loop through **each** dataset and **each** model)
+- ir_cnn.ipynb (other version) (**not** recommend) (run **all** datasets and **all** models **at the same time**) (requires huge memory and gpu)
+
+### Quick run with different datasets and different models
+
+In the main notebook ir_cnn_run.ipynb:  
+1. Modify variables: **dts_li** and **model_li**.  
+- **dts_li** is a list of datasets.  
+- **model_li** is a list of models.
+
+Make sure each dataset class will have the same structure as dataset classes in **utils_f/data/datacustom.py**,  
+and each model class will have the same structure as model classes in **utils_f/model/model_custom.py**
+
+2. Run the notebook.
+
+<br>
+
+Output:
+1. Features ---> Directory: **Feature**
+2. Labels ---> Directory: **Label**
+3. Models ---> Directory: **Model**
+4. Log (Precision at K result) ---> File path: **log/dataframes_to_excel.xlsx**
+
+The **Log output's order** in will be corresponding to the **order of datasets** in dts_li and the **order of models** in model_li, respectively.
+
+Auto download first time running:
+1. Fastai datasets ---> Directory: **Data**
+2. Original fastai timm models ---> Directory: **User/Admin(or user's name)/.cache** (in C:\ Disk on Windows)
+
+
+
+
+[^1]: [ImageNet 1k dataset link](https://www.kaggle.com/datasets/kerrit/imagenet1kmediumtest-10k)
+[^2]: [fastai timm link](https://timm.fast.ai/)
