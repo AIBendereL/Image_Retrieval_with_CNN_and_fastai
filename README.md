@@ -100,25 +100,25 @@ Auto download first time running:
 
 ## Prerequisite
 
-fastai  
-Convolution Neural Network (CNN)  
-jupyter notebook  
+- fastai  
+- Convolution Neural Network (CNN)  
+- jupyter notebook  
 
 ## My PC setup 
 
-Windows 10 64-bit  
-Processor i7-10700 (16 CPUs)  
-RAM 16 GB  
-GPU NVIDIA GeForce RTX 2060  
+- Windows 10 64-bit  
+- Processor i7-10700 (16 CPUs)  
+- RAM 16 GB  
+- GPU NVIDIA GeForce RTX 2060  
 
 ## Library Requirement
 
-Pytorch  
-fastai  
-timm  
-jupyter-lab  
-nbdev  
-pandas  
+- Pytorch  
+- fastai  
+- timm  
+- jupyter-lab  
+- nbdev  
+- pandas  
 
 [^1]: [ImageNet 1k dataset link](https://www.kaggle.com/datasets/kerrit/imagenet1kmediumtest-10k)
 [^2]: [fastai timm link](https://timm.fast.ai/)
