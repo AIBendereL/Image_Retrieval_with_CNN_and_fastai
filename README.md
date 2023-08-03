@@ -101,7 +101,7 @@ Auto download first time running:
 1. Here, **relevant images** means **images from the same class**.
 2. Because models files are too big, I don't upload them here. However, you can get them easily and fast by running the cell/function *save_models* in the main notebook.  
 3. Because features files are too big, I don't upload them here. You can get them all, along with labels files, by run the main notebook. It takes about 2 hours run time for my PC setup, datasets and original models downloading time excluded.
-4. After getting features files and labels files, you can load them to use. You can use function *get_feature_paths* and *get_label_paths* (from ***utils_f/path.py***) to get the path in the corresponding order, and then use Pytorch function *torch.load* to load them.
+4. After getting features files and labels files, you can load them to use. You can use function *get_feature_paths* and *get_label_paths* (from ***utils_f/path.py***) to get the paths in the corresponding order, and then use Pytorch function *torch.load* to load them.
 
 ## What next?
 
