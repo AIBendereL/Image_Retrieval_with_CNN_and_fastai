@@ -1,6 +1,11 @@
 # Image_Retrieval_with_CNN_and_fastai
 My personal practice, doing Image Retrieval with CNN, using fastai, without extra training.
 
+## Prerequisite
+
+- fastai  
+- Convolution Neural Network (CNN)  
+- jupyter notebook 
 
 ## Result  
 
@@ -98,12 +103,14 @@ Auto download first time running:
 3. Because features files are too big, I don't upload them here. You can get them all, along with labels files, by run the main notebook. It takes about 2 hours run time for my PC setup, datasets and original models downloading time excluded.
 4. After getting features files and labels files, you can load them to use. You can use function *get_feature_paths* and *get_label_paths* (from ***utils_f/path.py***) to get the path in the corresponding order, and then use Pytorch function *torch.load* to load them.
 
-## Prerequisite
+## What next?
 
-- fastai  
-- Convolution Neural Network (CNN)  
-- jupyter notebook  
-
+There are some more experiments can be conducted, which can expand or improve this Image Retrieval with CNN project, such as:  
+- Try different model's output layer.
+- Try different input image transformation methods, configurations.
+- Try different distance measures.  
+- Because the metric is Precision at K, which does not take in account the **ranking** of relevant images among the top K retrieved images, and it is computed based on images' classes, making an Image Retrieval problem somewhat similar to an Image Classification problem. Therefore, we can try Image Classification approaches.
+ 
 ## My PC setup 
 
 - Windows 10 64-bit  
