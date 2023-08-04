@@ -109,7 +109,7 @@ There are some more experiments can be conducted, which can expand or improve th
 - Try different model's output layer.
 - Try different input image transformation methods, configurations.
 - Try different distance measures.  
-- Because the metric is Precision at K, which does not take in account the **ranking** of relevant images among the top K retrieved images, and it is computed based on images' classes, making an Image Retrieval problem somewhat similar to an Image Classification problem. Therefore, we can try Image Classification approaches.
+- Because the metric is Precision at K, which does not take in account the **ranking** of relevant images among the top K retrieved images, and it is computed based on images' classes, making an Image Retrieval problem somewhat similar to an Image Classification problem. Therefore, we can try Image Classification approaches and make a comparison.
  
 ## My PC setup 
 
